@@ -26,3 +26,7 @@ hs_err_pid*
 .idea/
 SpringBoot-Action.iml
 target/
+/service/service.iml
+/logs/
+/dao/dao.iml
+/common/common.iml

@@ -4,13 +4,13 @@ import com.hangjiang.action.domain.AuthorBO;
 import com.hangjiang.action.domain.OrganizationBO;
 import com.hangjiang.action.entity.AuthorSettings;
 import com.hangjiang.action.service.IAuthorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jianghang on 2017/3/26.
@@ -18,6 +18,8 @@ import java.util.List;
 @RestController
 @SpringBootApplication
 public class ActionApplication {
+
+    private static Logger logger = LoggerFactory.getLogger(ActionApplication.class);
 
     @Autowired
     private AuthorSettings authorSettings;
@@ -28,7 +30,6 @@ public class ActionApplication {
     @RequestMapping("/findAuthorById")
     public AuthorBO findAuthorById(@RequestParam Integer id){
         AuthorBO author = authorService.findAuthorById(id);
-        List<AuthorBO> authorBOs = new ArrayList<AuthorBO>();
 
         return author;
     }
@@ -53,6 +54,10 @@ public class ActionApplication {
     }
 
     public static void main(String[] args){
-        SpringApplication.run(ActionApplication.class,args);
+        ApplicationContext applicationContext = SpringApplication.run(ActionApplication.class,args);
+        String[] activeProfiles = applicationContext.getEnvironment().getActiveProfiles();
+        for(String profile : activeProfiles){
+            logger.debug("Srping Boot profile:{}",profile);
+        }
     }
 }
