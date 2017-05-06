@@ -1,4 +1,4 @@
-package com.hangjiang.action.entity;
+package com.hangjiang.action.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

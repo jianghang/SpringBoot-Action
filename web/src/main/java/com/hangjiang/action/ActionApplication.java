@@ -1,8 +1,8 @@
 package com.hangjiang.action;
 
 import com.hangjiang.action.domain.AuthorBO;
+import com.hangjiang.action.domain.AuthorSettings;
 import com.hangjiang.action.domain.OrganizationBO;
-import com.hangjiang.action.entity.AuthorSettings;
 import com.hangjiang.action.service.IAuthorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +57,7 @@ public class ActionApplication {
         ApplicationContext applicationContext = SpringApplication.run(ActionApplication.class,args);
         String[] activeProfiles = applicationContext.getEnvironment().getActiveProfiles();
         for(String profile : activeProfiles){
-            logger.debug("Srping Boot profile:{}",profile);
+            logger.info("Srping Boot profile:{}",profile);
         }
     }
 }
