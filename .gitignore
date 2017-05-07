@@ -27,6 +27,7 @@ hs_err_pid*
 SpringBoot-Action.iml
 target/
 /service/service.iml
-/logs/
+/applogs-action/
 /dao/dao.iml
 /common/common.iml
+.DS_Store

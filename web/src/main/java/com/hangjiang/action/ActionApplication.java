@@ -4,11 +4,13 @@ import com.hangjiang.action.domain.AuthorBO;
 import com.hangjiang.action.domain.AuthorSettings;
 import com.hangjiang.action.domain.OrganizationBO;
 import com.hangjiang.action.service.IAuthorService;
+import com.hangjiang.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @SpringBootApplication
-public class ActionApplication {
+public class ActionApplication extends SpringBootServletInitializer{
 
     private static Logger logger = LoggerFactory.getLogger(ActionApplication.class);
 
@@ -30,6 +32,7 @@ public class ActionApplication {
     @RequestMapping("/findAuthorById")
     public AuthorBO findAuthorById(@RequestParam Integer id){
         AuthorBO author = authorService.findAuthorById(id);
+        logger.info(JsonUtil.obj2Json(author));
 
         return author;
     }
@@ -48,7 +51,7 @@ public class ActionApplication {
         return organizationBO;
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/test")
     public String index(){
         return "Hello Srping Boot: " + authorSettings.getName() + "-" + authorSettings.getAge();
     }
