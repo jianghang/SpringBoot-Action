@@ -2,10 +2,8 @@ package com.hangjiang.action.aop;
 
 import com.hangjiang.util.JsonUtil;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -43,5 +41,18 @@ public class AuthorRestControllerAop {
     @AfterReturning(returning = "object",pointcut = "webLog()")
     public void doAfterReturning(Object object) throws Throwable{
         logger.info("response: " + JsonUtil.obj2Json(object));
+    }
+
+    @Around("execution(public * com.hangjiang.action.controller..*.find*(..))")
+    public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+        logger.info("around name: " + proceedingJoinPoint.getSignature().getName());
+        try {
+            Object obj = proceedingJoinPoint.proceed();
+            return obj;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        return null;
     }
 }
