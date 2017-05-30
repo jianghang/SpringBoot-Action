@@ -69,5 +69,6 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.5.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:6.3.0" level="project" />
+    <orderEntry type="module" module-name="common" />
   </component>
 </module>

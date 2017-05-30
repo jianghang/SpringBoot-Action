@@ -1,14 +1,19 @@
 package com.hangjiang.action.impl;
 
+import com.google.common.collect.Lists;
 import com.hangjiang.action.dao.AuthorRepository;
 import com.hangjiang.action.dao.OrganizationRepository;
 import com.hangjiang.action.domain.AuthorBO;
 import com.hangjiang.action.domain.OrganizationBO;
+import com.hangjiang.action.domain.release.ReleaseContext;
 import com.hangjiang.action.entity.Author;
 import com.hangjiang.action.entity.Organization;
+import com.hangjiang.action.release.ReleaseEngine;
 import com.hangjiang.action.service.IAuthorService;
+import com.hangjiang.action.util.ActionAppContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.parsing.ReaderContext;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,8 +28,19 @@ public class AuthorServiceImpl implements IAuthorService {
     @Autowired
     private OrganizationRepository organizationRepository;
 
+    @Autowired
+    private ReleaseEngine releaseEngine;
+
     @Override
     public AuthorBO findAuthorById(Integer id) {
+        ReleaseContext releaseContext = new ReleaseContext();
+        releaseContext.setName("generalTaskChain");
+        releaseContext.setType(3);
+        ReleaseContext releaseContext1 = new ReleaseContext();
+        releaseContext1.setName("specialTaskChain");
+        releaseContext1.setType(1);
+        releaseEngine.begin(Lists.<ReleaseContext>newArrayList(releaseContext,releaseContext1));
+
         Author author = authorRepository.findOne(Long.valueOf(id));
         AuthorBO authorBO = new AuthorBO();
         BeanUtils.copyProperties(author,authorBO);

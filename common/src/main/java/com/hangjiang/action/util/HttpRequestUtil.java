@@ -1,4 +1,4 @@
-package com.hangjiang.util;
+package com.hangjiang.action.util;
 
 import com.google.common.collect.Lists;
 import okhttp3.*;

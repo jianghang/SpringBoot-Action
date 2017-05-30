@@ -1,4 +1,4 @@
-package com.hangjiang.util;
+package com.hangjiang.action.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

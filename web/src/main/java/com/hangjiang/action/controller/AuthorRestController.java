@@ -4,7 +4,7 @@ import com.hangjiang.action.domain.AuthorBO;
 import com.hangjiang.action.domain.AuthorSettings;
 import com.hangjiang.action.domain.OrganizationBO;
 import com.hangjiang.action.service.IAuthorService;
-import com.hangjiang.util.JsonUtil;
+import com.hangjiang.action.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

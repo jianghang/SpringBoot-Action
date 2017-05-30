@@ -1,6 +1,6 @@
 package com.hangjiang.action.aop;
 
-import com.hangjiang.util.JsonUtil;
+import com.hangjiang.action.util.JsonUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -17,7 +17,7 @@ import java.util.Arrays;
  * Created by jianghang on 2017/5/13.
  */
 @Component
-@Aspect
+//@Aspect
 public class AuthorRestControllerAop {
 
     private static Logger logger = LoggerFactory.getLogger(AuthorRestControllerAop.class);
