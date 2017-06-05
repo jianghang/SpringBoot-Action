@@ -10,10 +10,8 @@ import com.hangjiang.action.entity.Author;
 import com.hangjiang.action.entity.Organization;
 import com.hangjiang.action.release.ReleaseEngine;
 import com.hangjiang.action.service.IAuthorService;
-import com.hangjiang.action.util.ActionAppContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.parsing.ReaderContext;
 import org.springframework.stereotype.Service;
 
 /**
