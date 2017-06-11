@@ -38,6 +38,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by jianghang on 2017/6/5.
@@ -48,6 +49,7 @@ public class HttpClientUtil {
     private static SSLConnectionSocketFactory sslConnectionSocketFactory = null;
     private static PoolingHttpClientConnectionManager cm = null;
     private static SSLContextBuilder builder = null;
+    private static Random random = new Random();
 
     static {
         try {
@@ -181,8 +183,18 @@ public class HttpClientUtil {
         return httpClient;
     }
 
+    public String getRandomNum(){
+        int a = random.nextInt(99999999);
+        int b = random.nextInt(99999);
+        long l = a * 100000L + b;
+        String num = String.format("%013d",l);
+
+        return num;
+    }
+
     public static void main(String[] args){
 //        HttpClientUtil.getInstance().sendHttpGet("http://www.zhihu.com");
-        HttpClientUtil.getInstance().sendHttpsGet("https://www.zhihu.com");
+//        HttpClientUtil.getInstance().sendHttpsGet("https://www.zhihu.com");
+        System.out.println(HttpClientUtil.getInstance().getRandomNum());
     }
 }
