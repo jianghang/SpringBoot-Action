@@ -33,3 +33,4 @@ target/
 .DS_Store
 /impl/impl.iml
 /web/web.iml
+/catalina.base_IS_UNDEFINED/
