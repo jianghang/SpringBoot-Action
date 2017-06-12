@@ -24,13 +24,13 @@ public class ReleaseLogicAop {
 
     }
 
-    @Around("execution(public * com.hangjiang.action.release.task..*.execute*(..))")
+    @Around("execution(public * com.hangjiang.action.service.IBusiness.execute(..))")
     public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
         try {
             Object obj = proceedingJoinPoint.getArgs()[0];
             ReleaseContext releaseContext = (ReleaseContext) obj;
             StopWatch stopWatch = releaseContext.getStopWatch();
-            stopWatch.start(proceedingJoinPoint.getTarget().getClass().getName());
+            stopWatch.start(proceedingJoinPoint.getTarget().getClass().getSimpleName());
 
             proceedingJoinPoint.proceed();
 
