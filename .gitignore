@@ -31,6 +31,8 @@ target/
 /dao/dao.iml
 /common/common.iml
 .DS_Store
+*/.DS_Store
 /impl/impl.iml
 /web/web.iml
 /catalina.base_IS_UNDEFINED/
+/crawl/crawl.iml
