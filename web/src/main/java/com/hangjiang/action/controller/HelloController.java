@@ -13,7 +13,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String hello(){
-        return "hello.html";
+        return "hello";
     }
 
     @RequestMapping(value = "/helloTymeleaf",method = RequestMethod.GET)

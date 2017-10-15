@@ -4,14 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
-import org.springframework.jms.annotation.EnableJms;
 
 /**
  * Created by jianghang on 2017/3/26.
  */
 @SpringBootApplication
+@EnableCaching(proxyTargetClass = true)//开启CGLib动态代理
+@ServletComponentScan
 public class ActionApplication extends SpringBootServletInitializer{
 
     private static Logger logger = LoggerFactory.getLogger(ActionApplication.class);

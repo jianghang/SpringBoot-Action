@@ -22,31 +22,31 @@ public class ReleaseConfig {
 
     @Bean("beforeLogicBusiness")
     @Scope("prototype")
-    public BeforeLogicBusiness getBeforeLogicBusiness(){
-        BeforeLogicBusiness beforeLogicBusiness = new BeforeLogicBusiness();
+    public IBusiness getBeforeLogicBusiness(){
+        IBusiness beforeLogicBusiness = new BeforeLogicBusiness();
 
         return beforeLogicBusiness;
     }
 
     @Bean("coreLogicBusiness")
     @Scope("prototype")
-    public CoreLogicBusiness getCoreLogicBusiness(){
-        CoreLogicBusiness coreLogicBusiness = new CoreLogicBusiness();
+    public IBusiness getCoreLogicBusiness(){
+        IBusiness coreLogicBusiness = new CoreLogicBusiness();
 
         return coreLogicBusiness;
     }
 
     @Bean("postLogicBusiness")
     @Scope("prototype")
-    public PostLogicBusiness getPostLogicBusiness(){
-        PostLogicBusiness postLogicBusiness = new PostLogicBusiness();
+    public IBusiness getPostLogicBusiness(){
+        IBusiness postLogicBusiness = new PostLogicBusiness();
 
         return postLogicBusiness;
     }
 
     @Bean("dataQueryLogicBusiness")
-    public DataQueryLogicBusiness getDataQueryLogicBusiness(){
-        DataQueryLogicBusiness dataQueryLogicBusiness = new DataQueryLogicBusiness();
+    public IBusiness getDataQueryLogicBusiness(){
+        IBusiness dataQueryLogicBusiness = new DataQueryLogicBusiness();
 
         return dataQueryLogicBusiness;
     }
@@ -57,7 +57,7 @@ public class ReleaseConfig {
     public LogicTaskChain getLogicTaskChain(){
         LogicTaskChain logicTaskChain = new LogicTaskChain();
 
-        BeforeLogicBusiness beforeLogicBusiness = ActionAppContext.getApplicationContext().getBean("beforeLogicBusiness",BeforeLogicBusiness.class);
+        BeforeLogicBusiness beforeLogicBusiness = (BeforeLogicBusiness) ActionAppContext.getApplicationContext().getBean("beforeLogicBusiness",IBusiness.class);
         DataQueryLogicBusiness dataQueryLogicBusiness = ActionAppContext.getApplicationContext().getBean("dataQueryLogicBusiness",DataQueryLogicBusiness.class);
         CoreLogicBusiness coreLogicBusiness = ActionAppContext.getApplicationContext().getBean("coreLogicBusiness",CoreLogicBusiness.class);
         PostLogicBusiness postLogicBusiness = ActionAppContext.getApplicationContext().getBean("postLogicBusiness",PostLogicBusiness.class);
