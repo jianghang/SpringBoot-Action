@@ -38,7 +38,7 @@ public class WeiboController {
     @RequestMapping("/authorize")
     public void authorize(){
         try {
-            BareBonesBrowserLaunch.openURL(oauth.authorize("code",null));
+            BareBonesBrowserLaunch.openURL(oauth.authorize("code"));
         } catch (WeiboException e) {
             e.printStackTrace();
         }

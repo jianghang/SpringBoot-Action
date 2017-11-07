@@ -11,11 +11,28 @@
           media="screen,projection"/>
 </head>
 <body>
+
+<ul id="lang-dropdown" class="dropdown-content">
+    <li><a href="?lang=en">English</a></li>
+    <li><a href="?lang=zh">中国</a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper indigo">
+        <ul class="right">
+            <li>
+                <a href="#!" class="dropdown-button" data-activates="lang-dropdown">Lang<i class="mdi-action-language right"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <section layout:fragment="content">
     <p>Page content goes here</p>
 </section>
 
 <script src="/webjars/jquery/3.2.1/jquery.js"></script>
 <script src="/webjars/materializecss/0.100.2/js/materialize.js"></script>
+<script type="text/javascript">
+    $(".dropdown-button").dropdown();
+</script>
 </body>
 </html>
