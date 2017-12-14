@@ -31,13 +31,13 @@ public class AuthorServiceImpl implements IAuthorService {
 
     @Override
     public AuthorBO findAuthorById(Integer id) {
-        ReleaseContext releaseContext = new ReleaseContext();
-        releaseContext.setName("generalTaskChain");
-        releaseContext.setType(3);
-        ReleaseContext releaseContext1 = new ReleaseContext();
-        releaseContext1.setName("specialTaskChain");
-        releaseContext1.setType(1);
-        releaseEngine.begin(Lists.<ReleaseContext>newArrayList(releaseContext,releaseContext1));
+//        ReleaseContext releaseContext = new ReleaseContext();
+//        releaseContext.setName("generalTaskChain");
+//        releaseContext.setType(3);
+//        ReleaseContext releaseContext1 = new ReleaseContext();
+//        releaseContext1.setName("specialTaskChain");
+//        releaseContext1.setType(1);
+//        releaseEngine.begin(Lists.<ReleaseContext>newArrayList(releaseContext,releaseContext1));
 
         Author author = authorRepository.findOne(Long.valueOf(id));
         AuthorBO authorBO = new AuthorBO();

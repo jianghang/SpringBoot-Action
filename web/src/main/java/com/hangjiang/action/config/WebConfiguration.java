@@ -37,5 +37,6 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
+        registry.addInterceptor(new ControllerInterceptor()).addPathPatterns("/**");
     }
 }
